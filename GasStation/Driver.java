@@ -1,5 +1,6 @@
 package GasStation;
 import Tank.*;
+import Pump.*;
 
 /**
  * 
@@ -15,8 +16,24 @@ public class Driver{
 	public static void main(String[] args){
 		//Print welcome message
 		System.out.println("Buidling a gas station...");
-		
 		Tank diesel = DieselTank.getDieselTank();
+		Pump pump = new Pump();
+		Thread pump1 = new Thread(pump,"Diesel Pump 1:diesel:20:2.30");
+		Thread pump2 = new Thread(pump,"Diesel Pump 2:diesel:30:2.30");
+		
+		try
+		{
+			diesel.refill(100);
+			
+			pump1.start();
+			pump2.start();
+
+		}catch(TankException te) {
+			System.out.println(te);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		/*Tank diesel = DieselTank.getDieselTank();
 		Tank premium = PremiumTank.getPremiumTank();
 		Tank unleaded = UnleadedTank.getUnleadedTank();
 		
@@ -53,7 +70,7 @@ public class Driver{
 			System.out.println(te + "... shit...");
 		}
 		
-		System.out.println("Unleaded Tank Amount: " + unleaded.getAmount());		
+		System.out.println("Unleaded Tank Amount: " + unleaded.getAmount());	*/	
 		
 		
 		

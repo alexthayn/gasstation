@@ -83,6 +83,14 @@ public abstract class Tank {
 		
 	}
 	
+	/**
+	 * Returns if the tank is empty or not
+	 * @return
+	 */
+	public Boolean isEmpty() {
+		return (this.amount <= 0);
+	}
+	
 	
 	
 }
