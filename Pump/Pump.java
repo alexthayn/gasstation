@@ -23,7 +23,7 @@ public class Pump implements Runnable{
 		double total = 0.0;
 		
 		while (pumped < amount) {
-			
+
 			try {
 				Thread.sleep(100);
 			}catch(Exception e) {
@@ -33,11 +33,12 @@ public class Pump implements Runnable{
 			dieselTank = DieselTank.getDieselTank();
 			
 			try {
-				dieselTank.remove(tickAmount);
-				pumped += tickAmount;
-				total += (cost * tickAmount);
-				System.out.println(name + ":" +pumped + ":$" + total + "\nRemaining in diesel tank: " + dieselTank.getAmount() + " g.\n");
-				
+				synchronized(this) {
+					dieselTank.remove(tickAmount);
+					pumped += tickAmount;
+					total += (cost * tickAmount);
+					System.out.println(name + ":" +pumped + ":$" + total + "\nRemaining in diesel tank: " + dieselTank.getAmount() + " g.\n");
+				}
 			}catch(TankException te) {
 				System.out.println(te);
 				break;
@@ -47,6 +48,7 @@ public class Pump implements Runnable{
 				System.out.println("Tank is empty!");
 				break;
 			}
+
 		}
 	}
 	
