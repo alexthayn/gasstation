@@ -43,7 +43,7 @@ public abstract class Tank {
 	 * Returns amount of gas inside the tank
 	 * @return amount of gas inside tank
 	 */
-	public double getAmount()
+	public synchronized double getAmount()
 	{
 		return this.amount;
 	}
