@@ -33,5 +33,7 @@ public class Store {
 		tanks.add(DieselTank.getDieselTank());
 	}
 	
+	public pumpDiesel(double amount, )
+	
 	
 }
