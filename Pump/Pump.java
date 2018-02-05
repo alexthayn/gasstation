@@ -10,9 +10,6 @@ public class Pump implements Runnable{
 	
 	private final double tickAmount = 0.1;
 	
-	private String name = null;
-	private double amount = 0.0, cost = 0.0;
-	
 	private static Tank dieselTank;
 	private static Tank premiumTank;
 	private static Tank unleadedTank;
@@ -20,37 +17,48 @@ public class Pump implements Runnable{
 	
 	public Pump() {	};
 	
-	public void diesel(){
+	public void diesel(String name, double amount, double cost){
 		
 		double pumped = 0.0;
 		double total = 0.0;
 		
 		while (pumped < amount) {
+			
+			try {
+				Thread.sleep(100);
+			}catch(Exception e) {
+				
+			}
+			
 			dieselTank = DieselTank.getDieselTank();
 			
 			try {
 				dieselTank.remove(tickAmount);
 				pumped += tickAmount;
 				total += (cost * tickAmount);
-				System.out.println(name + ":" +pumped + ":$" + total);
-			}catch(TankException te) {
+				System.out.println(name + ":" +pumped + ":$" + total + "\nRemaining in diesel tank: " + dieselTank.getAmount() + " g.\n");
 				
+			}catch(TankException te) {
+				System.out.println(te);
+				break;
 			}
 			
-			if(dieselTank.isEmpty())
+			if(dieselTank.isEmpty()) {
+				System.out.println("Tank is empty!");
 				break;
+			}
 		}
 	}
 	
-	public void premium() {
+	public void premium(String name, double amount, double cost) {
 		premiumTank = PremiumTank.getPremiumTank();
 	}
 	
-	public void midgrade() {
+	public void midgrade(String name, double amount, double cost) {
 		
 	}
 	
-	public void unleaded() {
+	public void unleaded(String name, double amount, double cost) {
 		unleadedTank = UnleadedTank.getUnleadedTank();
 	}
 
@@ -59,19 +67,19 @@ public class Pump implements Runnable{
 		// TODO Auto-generated method stub
 		String info = Thread.currentThread().getName();
 		String brokenInfo[] = info.split(":");
-		name = brokenInfo[0];
-		amount = Double.parseDouble(brokenInfo[2]);
-		cost = Double.parseDouble(brokenInfo[3]);
+		String name = brokenInfo[0];
+		double amount = Double.parseDouble(brokenInfo[2]);
+		double cost = Double.parseDouble(brokenInfo[3]);
 		
 		if(brokenInfo[1].equals("diesel")) {
 			System.out.println("Made a diesel request for " + name);
-			this.diesel();}
+			this.diesel(name, amount, cost);}
 		else if(brokenInfo[1].equals("premium"))
-			this.premium();
+			this.premium(name, amount, cost);
 		else if(brokenInfo[1].equals("midgrade"))
-			this.midgrade();
+			this.midgrade(name, amount, cost);
 		else if(brokenInfo[1].equals("unleaded"))
-			this.unleaded();
+			this.unleaded(name, amount, cost);
 		
 	}
 	

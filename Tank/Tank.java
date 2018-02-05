@@ -72,7 +72,7 @@ public abstract class Tank {
 	 * @param amount amount of fuel to remove
 	 * @throws TankException error when tank is empty
 	 */
-	public void remove(double amount) throws TankException
+	public synchronized void remove(double amount) throws TankException
 	{
 		if(amount > this.amount)
 		{

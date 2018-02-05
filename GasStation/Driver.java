@@ -16,17 +16,20 @@ public class Driver{
 	public static void main(String[] args){
 		//Print welcome message
 		System.out.println("Buidling a gas station...");
+		
 		Tank diesel = DieselTank.getDieselTank();
-		Pump pump = new Pump();
-		Thread pump1 = new Thread(pump,"Diesel Pump 1:diesel:20:2.30");
-		Thread pump2 = new Thread(pump,"Diesel Pump 2:diesel:30:2.30");
+		Pump pump1 = new Pump();
+		Pump pump2 = new Pump();
+		Thread nozzle1 = new Thread(pump1,"Pump 1:diesel:20:2.30");
+		Thread nozzle2 = new Thread(pump2,"Pump 2:diesel:30:2.30");
 		
 		try
 		{
-			diesel.refill(100);
+			diesel.refill(40);
 			
-			pump1.start();
-			pump2.start();
+			nozzle1.start();
+			Thread.sleep(100);
+			nozzle2.start();
 
 		}catch(TankException te) {
 			System.out.println(te);
