@@ -1,3 +1,6 @@
 /PumpPremiumCommand.class
 /Command.class
 /Pump.class
+/PumpDieselCommand.class
+/PumpUnleadedCommand.class
+/PumpMidGradeCommand.class
