@@ -1,8 +1,2 @@
-/GasStation.class
-/Driver.class
-/Tank.class
-/OverflowException.class
-/TankException.class
-/DieselTank.class
 /PremiumTank.class
-/UnleadedTank.class
+/Driver.class

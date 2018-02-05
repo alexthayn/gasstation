@@ -1,4 +1,4 @@
-package GasStation;
+package Tank;
 
 public class UnleadedTank extends Tank {
 	//Global Variables

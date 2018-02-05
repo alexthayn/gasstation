@@ -1,4 +1,5 @@
 package GasStation;
+import Tank.*;
 
 /**
  * 

@@ -1,22 +1,22 @@
-package GasStation;
+package Tank;
 
-public class DieselTank extends Tank {
+public class PremiumTank extends Tank {
 	//Global Variables
 	protected volatile static Tank myTank = null;
 	
-	private DieselTank()
+	private PremiumTank()
 	{
 		setCapacity(12000);
 	}
 	
 	//@Override
-	public static Tank getDieselTank() {
+	public static Tank getPremiumTank() {
 		if(myTank == null)
 		{
-			synchronized (DieselTank.class) {
+			synchronized (PremiumTank.class) {
 				if(myTank == null)
 				{
-					myTank = new DieselTank();
+					myTank = new PremiumTank();
 				}
 			}
 		}
