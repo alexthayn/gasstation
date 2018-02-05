@@ -2,7 +2,7 @@ package Pump;
 
 import Command.Command;
 
-public class PumpPremiumCommand implements Command {
+public class PumpUnleadedCommand implements Command {
 
 	@Override
 	public void pump() {
