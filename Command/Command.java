@@ -1,6 +1,6 @@
 package Command;
 
-import Tank.TankException;
+import Pump.PumpException;
 
 /**
  * 
@@ -8,5 +8,5 @@ import Tank.TankException;
  *
  */
 public interface Command {
-	public void pump(long amount) throws TankException;
+	public void pump(long amount) throws PumpException;
 }

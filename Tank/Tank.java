@@ -59,12 +59,11 @@ public abstract class Tank {
 	public void refill(double amount) throws TankException
 	{
 		long a = (long) amount*100;
-		long fillRemaining = (this.amount + a) - this.capacity;
 		
 		if((this.amount + a) > this.capacity)
 		{
 			this.amount = this.capacity;
-			throw new TankException("You have hit capacity, " + fillRemaining + " gallons could not be added.");
+			throw new TankException("full");
 		}
 		
 		
@@ -81,7 +80,7 @@ public abstract class Tank {
 		long a = (long) amount*100;
 		if(a > this.amount)
 		{
-			throw new TankException("Insufficient amount of fuel remaining.");
+			throw new TankException("empty");
 		}
 		
 		this.amount -= a;

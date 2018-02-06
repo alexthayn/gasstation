@@ -27,9 +27,14 @@ public class Pump{
 	 * @param cost
 	 * @throws TankException 
 	 */
-	public void pumpDiesel(long amount) throws TankException{
+	public void pumpDiesel(long amount) throws PumpException{
 		for(int i =0; i<amount; i++) {
-			dieselTank.remove(tickAmount);
+			try {
+				dieselTank.remove(tickAmount);
+			}catch(TankException te) {
+				if(te.equals("empty"))
+					throw new PumpException("Tank is empty.",i);
+			}
 			i+=10;
 		}	
 	}
@@ -39,9 +44,14 @@ public class Pump{
 	 * @param amount
 	 * @throws TankException 
 	 */	
-	public void pumpPremium(long amount) throws TankException {
+	public void pumpPremium(long amount) throws PumpException {
 		for(int i =0; i<amount; i++) {
-			premiumTank.remove(tickAmount);
+			try {
+				premiumTank.remove(tickAmount);
+			}catch(TankException te) {
+				if(te.equals("empty"))
+					throw new PumpException("Tank is empty.",i);
+			}
 			i+=10;
 		}
 	}
@@ -51,9 +61,14 @@ public class Pump{
 	 * @param amount
 	 * @throws TankException 
 	 */
-	public void pumpUnleaded(long amount) throws TankException {
+	public void pumpUnleaded(long amount) throws PumpException {
 		for(int i =0; i<amount; i++) {
-			unleadedTank.remove(tickAmount);
+			try {
+				unleadedTank.remove(tickAmount);
+			}catch(TankException te) {
+				if(te.equals("empty"))
+					throw new PumpException("Tank is empty.",i);
+			}
 			i+=10;
 		}
 	}
@@ -63,7 +78,7 @@ public class Pump{
 	 * @param amount
 	 * @throws TankException 
 	 */
-	public void pumpMidGrade(long amount) throws TankException {
+	public void pumpMidGrade(long amount) throws PumpException {
 		pumpUnleaded(5);
 		pumpPremium(5);
 	}
