@@ -1,6 +1,7 @@
 package Store;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import Command.*;
 import Pump.*;
@@ -12,31 +13,50 @@ import Tank.*;
  *
  */
 public class Store {
-	//Global Variables
-	Tank 
+	////Global Variables\\\\
 	
+	//Singleton Tank Classes 
+	Tank dieselTank, premiumTank, unleadedTank;
+		
+	//PumpKiosk
+	PumpKiosk pumpKiosk;
 	
-	PumpDieselCommand dieselCommand;
-	PumpMidGradeCommand midGradeCommand;
-	PumpPremiumCommand premiumCommand;
-	PumpUnleadedCommand unleadedCommand;
+	//PumpKiosk Threads (number of pumps)
+	PumpThread pump1, pump2;
 	
-	
+	//Stack of requests
+	Queue<CustomerOrder> queue;
 	
 	public Store()
 	{
-		//Instantiate our tanks
+		//Debug Message
+		System.out.println("Making Store!");
 		
+		//Get Instance of Singleton Variables
+		dieselTank = DieselTank.getTank();
+		premiumTank = PremiumTank.getTank();
+		unleadedTank = UnleadedTank.getTank();
 		
-		dieselCommand = new PumpDieselCommand();
-		midGradeCommand = new PumpMidGradeCommand();
-		premiumCommand = new PumpPremiumCommand();
-		unleadedCommand = new PumpUnleadedCommand();
+		//Instantiate Variables 		
+		pumpKiosk = new PumpKiosk();
 		
-		tanks.add(DieselTank.getDieselTank());
+		pump1 = new PumpThread(pumpKiosk, "Pump 1");
+		pump2 = new PumpThread(pumpKiosk, "Pump 2");
+		
+		queue = new LinkedList<CustomerOrder>();
+		
+		//Debug Message
+		System.out.println("Store created!");
 	}
 	
-	public pumpDiesel(double amount, )
+	public void makeOrder(String name, String type, double amount)
+	{
+		queue.add(new CustomerOrder(name, type, amount));
+	}
 	
+	public CustomerOrder popOrder()
+	{
+		return queue.remove();
+	}
 	
 }
