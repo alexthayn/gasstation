@@ -14,9 +14,21 @@ public class Pump implements Runnable{
 	private static Tank premiumTank;
 	private static Tank unleadedTank;
 	
+	private boolean occupied;
+	private int id;
 	
-	public Pump() {	};
 	
+	public Pump(int id) {	
+		occupied = false;
+		this.id = id;
+	};
+	
+	/**
+	 * 
+	 * @param name
+	 * @param amount
+	 * @param cost
+	 */
 	public void diesel(String name, double amount, double cost){
 		
 		double pumped = 0.0;
@@ -49,6 +61,12 @@ public class Pump implements Runnable{
 		}
 	}
 	
+	/**
+	 * 
+	 * @param name
+	 * @param amount
+	 * @param cost
+	 */
 	public void premium(String name, double amount, double cost) {
 
 		double pumped = 0.0;
@@ -81,6 +99,12 @@ public class Pump implements Runnable{
 		}
 	}
 	
+	/**
+	 * 
+	 * @param name
+	 * @param amount
+	 * @param cost
+	 */
 	public void midgrade(String name, double amount, double cost) {
 		
 		double pumped = 0.0;
@@ -121,6 +145,12 @@ public class Pump implements Runnable{
 		}
 	}
 	
+	/**
+	 * 
+	 * @param name
+	 * @param amount
+	 * @param cost
+	 */
 	public void unleaded(String name, double amount, double cost) {
 
 		double pumped = 0.0;
@@ -152,10 +182,29 @@ public class Pump implements Runnable{
 
 		}
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isInUse() {
+		return occupied;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getId() {
+		return this.id;
+	}
 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
+		//Declare pump as being used.
+		occupied = true;
+		
 		String info = Thread.currentThread().getName();
 		String brokenInfo[] = info.split(":");
 		String name = brokenInfo[0];
@@ -172,7 +221,6 @@ public class Pump implements Runnable{
 		else if(brokenInfo[1].equals("unleaded"))
 			this.unleaded(name, amount, cost);
 		
+		occupied = false;
 	}
-	
-	
 }
