@@ -46,7 +46,7 @@ public class PumpKiosk implements Runnable{
 	}
 	
 	private static double toDouble(long num) {
-		return ((double)num) * 100;
+		return ((double)num) / 100;
 	}
 	
 	@Override
@@ -75,15 +75,20 @@ public class PumpKiosk implements Runnable{
 					curCost = unlCost;
 					unleadedCommand.pump(amount);
 				}
+				
+				System.out.println("Amount pumped: " + toDouble(amount));
+				System.out.println("Total cost: $" + toDouble(amount * curCost));
+				PumpThread.currentThread().setOpen();
+				
 			}catch (PumpException pe) {
 				System.out.println(pe);
 				System.out.println("Amount pumped: " + toDouble(pe.getAmount()));
 				System.out.println("Total cost: $" + toDouble(pe.getAmount() * curCost));
 				PumpThread.currentThread().setOpen();
 			}
-			System.out.println("Amount pumped: " + toDouble(amount));
-			System.out.println("Total cost: $" + toDouble(amount * curCost));
-			PumpThread.currentThread().setOpen();
+			catch (Exception e) {
+				System.out.println(e);
+			}
 		}
 	}
 }
