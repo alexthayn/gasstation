@@ -6,7 +6,7 @@ import Tank.TankException;
 public class PumpPremiumCommand implements Command {
 	Pump pump;
 	@Override
-	public void pump(long amount) throws TankException {
+	public void pump(long amount) throws PumpException {
 		// TODO Auto-generated method stub
 		pump = new Pump();
 		pump.pumpDiesel(amount);
