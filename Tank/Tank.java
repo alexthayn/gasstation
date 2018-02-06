@@ -2,12 +2,12 @@ package Tank;
 
 /**
  * Tank abstract class that sets prereqs for a Tank concrete class
- * @author jacksonportersnow
+ * @author jacksonportersnow and goofyChicken
  *
  */
 public abstract class Tank {
 	//Global variables
-	private double capacity, amount;
+	private long capacity, amount;
 
 	
 	/**
@@ -27,7 +27,8 @@ public abstract class Tank {
 	 */
 	protected void setCapacity(double capacity)
 	{
-		this.capacity = capacity;
+		long c = (long) capacity*100;
+		this.capacity = c;
 	}
 	
 	/**
@@ -36,7 +37,8 @@ public abstract class Tank {
 	 */
 	public double getCapacity()
 	{
-		return this.capacity;
+		double capacity = (double) (this.capacity/100);
+		return capacity;
 	}
 	
 	/**
@@ -45,7 +47,8 @@ public abstract class Tank {
 	 */
 	public synchronized double getAmount()
 	{
-		return this.amount;
+		double amount = (double) (this.amount/100);
+		return amount;
 	}
 	
 	/**
@@ -55,16 +58,17 @@ public abstract class Tank {
 	 */
 	public void refill(double amount) throws TankException
 	{
-		double fillRemaining = (this.amount + amount) - this.capacity;
+		long a = (long) amount*100;
+		long fillRemaining = (this.amount + a) - this.capacity;
 		
-		if((this.amount + amount) > this.capacity)
+		if((this.amount + a) > this.capacity)
 		{
 			this.amount = this.capacity;
 			throw new TankException("You have hit capacity, " + fillRemaining + " gallons could not be added.");
 		}
 		
 		
-		this.amount += amount;
+		this.amount += a;
 	}
 	
 	/**
@@ -74,12 +78,13 @@ public abstract class Tank {
 	 */
 	public synchronized void remove(double amount) throws TankException
 	{
-		if(amount > this.amount)
+		long a = (long) amount*100;
+		if(a > this.amount)
 		{
 			throw new TankException("Insufficient amount of fuel remaining.");
 		}
 		
-		this.amount -= amount;
+		this.amount -= a;
 		
 	}
 	
@@ -90,7 +95,4 @@ public abstract class Tank {
 	public Boolean isEmpty() {
 		return (this.amount <= 0);
 	}
-	
-	
-	
 }

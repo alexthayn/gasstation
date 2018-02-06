@@ -1,18 +1,14 @@
 package Pump;
 
 import Command.Command;
+import Tank.TankException;
 
 public class PumpPremiumCommand implements Command {
-
-	
-	public PumpPremiumCommand() {};
-	
+	Pump pump;
 	@Override
-	public void execute(Pump pump, double amount, double cost) {
+	public void pump(long amount) throws TankException {
 		// TODO Auto-generated method stub
-		int pumpId = pump.getId();
-		String com = "Pump " + pumpId + ":premium:" + amount + ":" + cost;
-		Thread fill = new Thread(pump,com);
-		fill.start();
+		pump = new Pump();
+		pump.pumpDiesel(amount);
 	}
 }
