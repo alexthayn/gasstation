@@ -1,6 +1,7 @@
 package GasStation;
 import Tank.*;
 import Pump.*;
+import Store.Store;
 
 /**
  * 
@@ -17,6 +18,23 @@ public class Driver{
 		//Print welcome message
 		System.out.println("Buidling a gas station...");
 		
+		Store theStore = new Store();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
 		Tank diesel = DieselTank.getTank();
 		Tank premium = PremiumTank.getTank();
 		Tank unleaded = UnleadedTank.getTank();
@@ -39,6 +57,8 @@ public class Driver{
 		}catch(Exception e) {
 			System.out.println(e);
 		}
+		*/
+		
 		/*Tank diesel = DieselTank.getDieselTank();
 		Tank premium = PremiumTank.getPremiumTank();
 		Tank unleaded = UnleadedTank.getUnleadedTank();

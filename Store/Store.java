@@ -13,18 +13,21 @@ import Tank.*;
  */
 public class Store {
 	//Global Variables
+	Tank 
+	
+	
 	PumpDieselCommand dieselCommand;
 	PumpMidGradeCommand midGradeCommand;
 	PumpPremiumCommand premiumCommand;
 	PumpUnleadedCommand unleadedCommand;
-	ArrayList<Tank> tanks;
 	
-	/**
-	 * 
-	 * @param numTanks
-	 */
-	public Store(int numTanks)
+	
+	
+	public Store()
 	{
+		//Instantiate our tanks
+		
+		
 		dieselCommand = new PumpDieselCommand();
 		midGradeCommand = new PumpMidGradeCommand();
 		premiumCommand = new PumpPremiumCommand();
