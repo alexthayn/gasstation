@@ -27,6 +27,7 @@ public class Store {
 	//Stack of requests
 	Queue<CustomerOrder> queue;
 	
+	
 	public Store()
 	{
 		//Debug Message
@@ -39,7 +40,10 @@ public class Store {
 		
 		//Instantiate Variables 		
 		pumpKiosk = new PumpKiosk();
-		pumpKiosk.setDieselCost();
+		pumpKiosk.setDieselCost(2.50);
+		pumpKiosk.setUnleadedCost(2.45);
+		pumpKiosk.setPremiumCost(3.00);
+		pumpKiosk.setMidgradeCost(2.75);
 		
 		pump1 = new PumpThread(pumpKiosk, "Pump 1");
 		pump2 = new PumpThread(pumpKiosk, "Pump 2");
