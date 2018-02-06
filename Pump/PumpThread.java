@@ -29,7 +29,7 @@ public class PumpThread extends Thread{
 	 * @throws Exception
 	 */
 	public void newCustomer(String gasType,long gasAmount) throws Exception {
-		if(gasAmount > 0)
+		if(gasAmount < 0)
 			throw new Exception("Cannot recieve negative amount of gas.");
 		
 		type = gasType;
@@ -58,7 +58,7 @@ public class PumpThread extends Thread{
 	 * @throws Exception
 	 */
 	public void setAmount(long gasAmount) throws Exception{
-		if(gasAmount > 0)
+		if(gasAmount < 0)
 			throw new Exception("Cannot recieve negative amount of gas.");
 		
 		amount = gasAmount;
@@ -94,5 +94,11 @@ public class PumpThread extends Thread{
 		open = true;
 	}
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public static PumpThread currentThread() {
+		return ((PumpThread)Thread.currentThread());
+	}
 }
