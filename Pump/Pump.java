@@ -6,7 +6,7 @@ import Tank.*;
  * @author tymcb
  *
  */
-public class Pump implements Runnable{
+public class Pump{
 	
 	
 	
@@ -15,9 +15,6 @@ public class Pump implements Runnable{
 	private static Tank dieselTank;
 	private static Tank premiumTank;
 	private static Tank unleadedTank;
-	
-	private boolean occupied;
-	private int id;
 	
 	
 	public Pump() {	
@@ -37,8 +34,7 @@ public class Pump implements Runnable{
 	/**
 	 * 
 	 * @param amount
-	 */
-	
+	 */	
 	public void pumpPremium(long amount) {
 		
 	}
@@ -59,5 +55,6 @@ public class Pump implements Runnable{
 		pumpUnleaded(50);
 		pumpPremium(50);
 	}
+
 
 }
