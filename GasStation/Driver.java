@@ -17,18 +17,21 @@ public class Driver{
 		//Print welcome message
 		System.out.println("Buidling a gas station...");
 		
-		Tank diesel = DieselTank.getDieselTank();
+		Tank diesel = DieselTank.getTank();
+		Tank premium = PremiumTank.getTank();
+		Tank unleaded = UnleadedTank.getTank();
 		Pump pump1 = new Pump();
 		Pump pump2 = new Pump();
-		Thread nozzle1 = new Thread(pump1,"Pump 1:diesel:20:2.30");
-		Thread nozzle2 = new Thread(pump2,"Pump 2:diesel:30:2.30");
+		Thread nozzle1 = new Thread(pump1,"Pump 1:premium:15:3.80");
+		Thread nozzle2 = new Thread(pump2,"Pump 2:midgrade:20:3.40");
 		
 		try
 		{
-			diesel.refill(40);
+			diesel.refill(50);
+			premium.refill(50);
+			unleaded.refill(50);
 			
 			nozzle1.start();
-			Thread.sleep(100);
 			nozzle2.start();
 
 		}catch(TankException te) {

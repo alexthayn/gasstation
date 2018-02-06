@@ -10,7 +10,7 @@ public class UnleadedTank extends Tank {
 	}
 	
 	//@Override
-	public static Tank getUnleadedTank() {
+	public static Tank getTank() {
 		if(myTank == null)
 		{
 			synchronized (UnleadedTank.class) {

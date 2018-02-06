@@ -10,7 +10,7 @@ public class DieselTank extends Tank {
 	}
 	
 	//@Override
-	public static Tank getDieselTank() {
+	public static Tank getTank() {
 		if(myTank == null)
 		{
 			synchronized (DieselTank.class) {

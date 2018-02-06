@@ -24,13 +24,9 @@ public class Pump implements Runnable{
 		
 		while (pumped < amount) {
 
-			try {
-				Thread.sleep(50);
-			}catch(Exception e) {
-				
-			}
+			try {Thread.sleep(10);}catch(Exception e) {}
 
-			dieselTank = DieselTank.getDieselTank();
+			dieselTank = DieselTank.getTank();
 			synchronized(dieselTank) {	
 				try {
 					
@@ -45,7 +41,7 @@ public class Pump implements Runnable{
 				}
 				
 				if(dieselTank.isEmpty()) {
-					System.out.println("Tank is empty!");
+					System.out.println("Diesel Tank is empty!");
 					break;
 				}
 			}
@@ -54,15 +50,107 @@ public class Pump implements Runnable{
 	}
 	
 	public void premium(String name, double amount, double cost) {
-		premiumTank = PremiumTank.getPremiumTank();
+
+		double pumped = 0.0;
+		double total = 0.0;
+		
+		while (pumped < amount) {
+
+			try {Thread.sleep(10);}catch(Exception e) {}
+
+			premiumTank = PremiumTank.getTank();
+			synchronized(premiumTank) {	
+				try {
+					
+						premiumTank.remove(tickAmount);
+						pumped += tickAmount;
+						total += (cost * tickAmount);
+						System.out.println(name + ":" +pumped + ":$" + total + "\nRemaining in premium tank: " + premiumTank.getAmount() + " g.\n");
+					
+				}catch(TankException te) {
+					System.out.println(te);
+					break;
+				}
+				
+				if(premiumTank.isEmpty()) {
+					System.out.println("Premium Tank is empty!");
+					break;
+				}
+			}
+
+		}
 	}
 	
 	public void midgrade(String name, double amount, double cost) {
 		
+		double pumped = 0.0;
+		double total = 0.0;
+		
+		while (pumped < amount) {
+
+			try {Thread.sleep(10);}catch(Exception e) {}
+
+			premiumTank = PremiumTank.getTank();
+			unleadedTank = UnleadedTank.getTank();
+			synchronized(unleadedTank) {	
+				try {
+					
+						unleadedTank.remove(tickAmount/2);
+						premiumTank.remove(tickAmount/2);
+						pumped += tickAmount;
+						total += (cost * tickAmount);
+						System.out.println(name + ":" +pumped + ":$" + total + 
+								"\nRemaining in unleaded tank: " + unleadedTank.getAmount() + " g." +
+								"\nRemaining in premium tank: " + premiumTank.getAmount() + " g.\n");
+					
+				}catch(TankException te) {
+					System.out.println(te);
+					break;
+				}
+				
+				if(unleadedTank.isEmpty()) {
+					System.out.println("Unleaded Tank is empty!");
+					break;
+				}
+				if(premiumTank.isEmpty()) {
+					System.out.println("Premium Tank is empty!");
+					break;
+				}
+			}
+
+		}
 	}
 	
 	public void unleaded(String name, double amount, double cost) {
-		unleadedTank = UnleadedTank.getUnleadedTank();
+
+		double pumped = 0.0;
+		double total = 0.0;
+		
+		while (pumped < amount) {
+
+			try {Thread.sleep(10);}catch(Exception e) {}
+
+			unleadedTank = UnleadedTank.getTank();
+			synchronized(unleadedTank) {	
+				try {
+					
+						unleadedTank.remove(tickAmount);
+						pumped += tickAmount;
+						total += (cost * tickAmount);
+						System.out.println(name + ":" +pumped + ":$" + total + "\nRemaining in unleaded tank: " + unleadedTank.getAmount() + " g.\n");
+					
+				}catch(TankException te) {
+					System.out.println(te);
+					break;
+				}
+				
+				if(unleadedTank.isEmpty()) {
+					System.out.println("Tank is empty!");
+					break;
+				}
+			}
+
+		}
 	}
 
 	@Override

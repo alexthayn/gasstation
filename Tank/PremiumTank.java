@@ -10,7 +10,7 @@ public class PremiumTank extends Tank {
 	}
 	
 	//@Override
-	public static Tank getPremiumTank() {
+	public static Tank getTank() {
 		if(myTank == null)
 		{
 			synchronized (PremiumTank.class) {
