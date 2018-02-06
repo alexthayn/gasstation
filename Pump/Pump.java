@@ -3,7 +3,7 @@ import Tank.*;
 
 /**
  * 
- * @author tymcb
+ * @author tymcb and goofyChicken
  *
  */
 public class Pump{
