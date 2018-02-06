@@ -13,7 +13,7 @@ import Tank.*;
  */
 public class Store {
 	//Global Variables
-	
+	Tank 
 	
 	
 	PumpDieselCommand dieselCommand;
