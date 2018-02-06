@@ -39,6 +39,7 @@ public class Store {
 		
 		//Instantiate Variables 		
 		pumpKiosk = new PumpKiosk();
+		pumpKiosk.setDieselCost();
 		
 		pump1 = new PumpThread(pumpKiosk, "Pump 1");
 		pump2 = new PumpThread(pumpKiosk, "Pump 2");
