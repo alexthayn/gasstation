@@ -11,13 +11,13 @@ public class Pump{
 	//we remove 0.1 gallons each time, 0.1 = 100 long
 	private final double tickAmount = 0.1;
 	
-	private static Tank dieselTank;
-	private static Tank premiumTank;
-	private static Tank unleadedTank;
+	private static Tank dieselTank, premiumTank, unleadedTank;
 	
 	
 	public Pump() {	
-		
+		dieselTank = DieselTank.getTank();
+		premiumTank = PremiumTank.getTank();
+		unleadedTank = UnleadedTank.getTank();
 	};
 	
 	/**
