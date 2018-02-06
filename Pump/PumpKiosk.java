@@ -13,6 +13,14 @@ public class PumpKiosk implements Runnable{
 	PumpPremiumCommand premiumCommand;
 	PumpUnleadedCommand unleadedCommand;
 
+	public PumpKiosk()
+	{
+		dieselCommand = new PumpDieselCommand();
+		midGradeCommand = new PumpMidGradeCommand();
+		premiumCommand = new PumpPremiumCommand();
+		unleadedCommand = new PumpUnleadedCommand();
+	}
+	
 	public void setDieselCost(double cost) {
 		dieselCost = (long) Math.floor(cost * 100);
 	}
