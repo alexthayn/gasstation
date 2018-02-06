@@ -1,5 +1,8 @@
 package GasStation;
 import Tank.*;
+
+import java.util.Scanner;
+
 import Pump.*;
 import Store.Store;
 
@@ -9,20 +12,37 @@ import Store.Store;
  *
  */
 public class Driver{
-
+	
+	
 	/**
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args){
-		//Print welcome message
-		System.out.println("Buidling a gas station...");
+		Scanner input = new Scanner(System.in);
 		
+		//Print welcome message
+		System.out.println("Welcome to TAJ's Gas Station!!\n");
+		
+		//Make Store
 		Store theStore = new Store();
 		
+		//Print a blank line
+		System.out.println();
 		
+		//Get Order
+		System.out.print("Enter your name: ");
+		String name = input.nextLine();
 		
+		System.out.print("\nEnter the type of fuel: (diesel, unleaded, midgrade, premium):");
+		String type = input.nextLine();
 		
+		System.out.print("\nEnter the amount of fuel you wish to pump in gallons: ");
+		String amount = input.nextLine();
+		
+		theStore.makeOrder(name, type, Double.parseDouble(amount));
+		
+		System.out.println("The order, " + theStore.popOrder() + " was completed.");
 		
 		
 		
