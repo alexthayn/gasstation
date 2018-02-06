@@ -42,7 +42,11 @@ public class Driver{
 		
 		theStore.makeOrder(name, type, Double.parseDouble(amount));
 		
-		System.out.println("The order, " + theStore.popOrder() + " was completed.");
+
+		
+		//Run orders!
+		theStore.storeOpen();
+		
 		
 		
 		

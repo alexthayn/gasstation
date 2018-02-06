@@ -10,6 +10,9 @@ public class PumpDriver {
 		PumpThread pump1 = new PumpThread(pump,"Pump 1");
 		PumpThread pump2 = new PumpThread(pump,"Pump 2");
 		
+		//pump1.start();
+
+		
 		try {
 			pump1.newCustomer("diesel",20);
 			pump2.newCustomer("unleaded",40);

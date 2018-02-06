@@ -28,12 +28,12 @@ public class PumpThread extends Thread{
 	 * @param gasAmount
 	 * @throws Exception
 	 */
-	public void newCustomer(String gasType,long gasAmount) throws Exception {
+	public void newCustomer(String gasType,double gasAmount) throws Exception {
 		if(gasAmount < 0)
 			throw new Exception("Cannot recieve negative amount of gas.");
 		
 		type = gasType;
-		amount = gasAmount;
+		amount = (long) Math.floor(gasAmount * 100);
 	}
 	
 	/**
@@ -57,11 +57,11 @@ public class PumpThread extends Thread{
 	 * @param gasAmount
 	 * @throws Exception
 	 */
-	public void setAmount(long gasAmount) throws Exception{
+	public void setAmount(double gasAmount) throws Exception{
 		if(gasAmount < 0)
 			throw new Exception("Cannot recieve negative amount of gas.");
 		
-		amount = gasAmount;
+		amount = (long) Math.floor(gasAmount * 100);
 	}
 	
 	/**

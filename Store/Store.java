@@ -59,4 +59,29 @@ public class Store {
 		return queue.remove();
 	}
 	
+	public void storeOpen()
+	{
+		//Initial order
+		CustomerOrder current = queue.remove();
+		
+		try {
+			pump1.newCustomer(current.getType(), current.getAmount());
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			System.out.println(e1);
+		}
+		pump1.start();		
+		
+		
+		/*
+		while(current != null)
+		{
+			if(pump1.isOpen())
+			{
+				current = queue.remove();
+			}
+		}
+		*/
+	}
+	
 }
