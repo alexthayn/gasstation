@@ -61,7 +61,6 @@ public class PumpKiosk implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 
-		synchronized(this){
 			long amount = PumpThread.currentThread().getAmount();
 			String gasType = PumpThread.currentThread().getGasType();
 			long curCost = 0;
@@ -84,31 +83,32 @@ public class PumpKiosk implements Runnable{
 					unleadedCommand.pump(amount);
 				}
 				
-				System.out.println("\n" + Thread.currentThread().getName() + ":");
-				System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
-				System.out.println("Amount pumped: " + toDouble(amount) + " gallons");
-				System.out.print("Price per gallon: $");
-				System.out.printf("%.2f\n", toDouble(curCost));
-				System.out.print("Total cost: $");
-				System.out.printf("%.2f\n", toDouble(amount) * toDouble(curCost));
-				PumpThread.currentThread().setOpen();
+				synchronized(this){
+					System.out.println("\n" + Thread.currentThread().getName() + ":");
+					System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
+					System.out.println("Amount pumped: " + toDouble(amount) + " gallons");
+					System.out.print("Price per gallon: $");
+					System.out.printf("%.2f\n", toDouble(curCost));
+					System.out.print("Total cost: $");
+					System.out.printf("%.2f\n", toDouble(amount) * toDouble(curCost));
+					PumpThread.currentThread().setOpen();
+				}
 				
 			}catch (PumpException pe) {
-				System.out.println("\n" + Thread.currentThread().getName() + ":");
-				System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
-				System.out.println(pe);
-				System.out.println("Amount pumped: " + toDouble(pe.getAmount()) + " gallons");
-				System.out.print("Price per gallon: $");
-				System.out.printf("%.2f\n", toDouble(curCost));
-				System.out.print("Total cost: $");
-				System.out.printf("%.2f\n", toDouble(pe.getAmount()) * toDouble(curCost));
-				PumpThread.currentThread().setOpen();
+				synchronized(this){
+					System.out.println("\n" + Thread.currentThread().getName() + ":");
+					System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
+					System.out.println(pe);
+					System.out.println("Amount pumped: " + toDouble(pe.getAmount()) + " gallons");
+					System.out.print("Price per gallon: $");
+					System.out.printf("%.2f\n", toDouble(curCost));
+					System.out.print("Total cost: $");
+					System.out.printf("%.2f\n", toDouble(pe.getAmount()) * toDouble(curCost));
+					PumpThread.currentThread().setOpen();
+				}
 			}
 			catch (Exception e) {
 				System.out.println(e);
 			}
-			
-			try {Thread.sleep(300);}catch(Exception e) {};
-		}
 	}
 }

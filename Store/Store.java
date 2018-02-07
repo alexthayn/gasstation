@@ -79,7 +79,8 @@ public class Store {
 		
 		CustomerOrder current;
 		while(!queue.isEmpty()) {
-			if(pump1.isOpen()) {
+			
+			if(pump1.isOpen() && !queue.isEmpty()) {
 				current = queue.remove();
 				try {
 					pump1 = new PumpThread(pumpKiosk, "Pump 1");
@@ -89,7 +90,8 @@ public class Store {
 					
 				}
 			}
-			else if(pump2.isOpen()) {
+			
+			if(pump2.isOpen() && !queue.isEmpty()) {
 				current = queue.remove();
 				try {
 					pump2 = new PumpThread(pumpKiosk, "Pump 2");
