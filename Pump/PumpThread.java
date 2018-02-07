@@ -34,6 +34,7 @@ public class PumpThread extends Thread{
 		
 		type = gasType;
 		amount = (long) Math.floor(gasAmount * 100);
+		open = false;
 	}
 	
 	/**
