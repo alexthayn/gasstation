@@ -76,9 +76,33 @@ public class Store {
 	
 	public void storeOpen()
 	{
-		//Initial order
-		CustomerOrder current = queue.remove();
 		
+		CustomerOrder current;
+		while(!queue.isEmpty()) {
+			if(pump1.isOpen()) {
+				current = queue.remove();
+				try {
+					pump1 = new PumpThread(pumpKiosk, "Pump 1");
+					pump1.newCustomer(current.getType(), current.getAmount());
+					pump1.start();
+				}catch(Exception e) {
+					
+				}
+			}
+			else if(pump2.isOpen()) {
+				current = queue.remove();
+				try {
+					pump2 = new PumpThread(pumpKiosk, "Pump 2");
+					pump2.newCustomer(current.getType(), current.getAmount());
+					pump2.start();
+				}catch(Exception e) {
+					
+				}
+			}
+		}
+		
+		/*//Initial order
+		CustomerOrder current = queue.remove();
 		try {
 			while(current != null)
 			{
@@ -97,7 +121,7 @@ public class Store {
 			}
 		}catch(java.util.NoSuchElementException e) {
 			System.out.println("Proccessed all orders!");
-		}
+		}*/
 		
 		
 		

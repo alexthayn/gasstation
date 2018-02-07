@@ -107,6 +107,8 @@ public class PumpKiosk implements Runnable{
 			catch (Exception e) {
 				System.out.println(e);
 			}
+			
+			try {Thread.sleep(300);}catch(Exception e) {};
 		}
 	}
 }

@@ -27,7 +27,7 @@ public class Driver{
 		//Make Store
 		Store theStore = new Store();
 		
-		//Print a blank line
+		/*//Print a blank line
 		System.out.println();
 		
 		//Get Order
@@ -40,24 +40,22 @@ public class Driver{
 		System.out.print("\nEnter the amount of fuel you wish to pump in gallons: ");
 		String amount = input.nextLine();
 		
-		theStore.makeOrder(name, type, Double.parseDouble(amount));
+		theStore.makeOrder(name, type, Double.parseDouble(amount));*/
 		theStore.makeOrder("Eliza", "unleaded", 10);
+		theStore.makeOrder("George", "unleaded", 20);
+		theStore.makeOrder("Fredrick", "premium", 40);
+		theStore.makeOrder("Sammy", "midgrade", 10);
+		theStore.makeOrder("Anne", "unleaded", 25);
+		theStore.makeOrder("Bill", "diesel", 30);
+		theStore.makeOrder("Frank", "diesel", 50);
+		theStore.makeOrder("Lola", "unleaded", 10);
+		theStore.makeOrder("Dude", "premium", 25);
+		theStore.makeOrder("Jack", "unleaded", 10);
 
-		
 		//Run orders!
 		theStore.storeOpen();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		/*
 		Tank diesel = DieselTank.getTank();
 		Tank premium = PremiumTank.getTank();
