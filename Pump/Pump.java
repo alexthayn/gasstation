@@ -27,8 +27,9 @@ public class Pump{
 	 * @param cost
 	 * @throws TankException 
 	 */
-	public void pumpDiesel(long amount) throws PumpException{
+	public void pumpDiesel(long amount) throws PumpException, TankException {
 		boolean warn = false;
+		String warnString = null;
 		for(int i =0; i<amount; i+=10) {
 			try {
 				dieselTank.remove(tickAmount);
@@ -37,11 +38,13 @@ public class Pump{
 					throw new PumpException("DIESEL TANK: Tank is empty.",i);
 				else  if(warn == false)
 				{
-					System.out.println("DIESEL TANK: " + te.toString());
+					warnString = te.toString();
 					warn = true;
 				}
 			}
-		}	
+		}
+		if(warnString != null)
+			throw new TankException(warnString);
 	}
 	
 	/**
@@ -49,8 +52,9 @@ public class Pump{
 	 * @param amount
 	 * @throws TankException 
 	 */	
-	public void pumpPremium(long amount) throws PumpException {
+	public void pumpPremium(long amount) throws PumpException, TankException  {
 		boolean warn = false;
+		String warnString = null;
 		for(int i =0; i<amount; i+=10) {
 			try {
 				premiumTank.remove(tickAmount);
@@ -59,11 +63,14 @@ public class Pump{
 					throw new PumpException("PREMIUM TANK: Tank is empty.",i);
 				else if(warn == false)
 				{
-					System.out.println("PREMIUM TANK: " + te.toString());
+					warnString = te.toString();
 					warn = true;
 				}
 			}
 		}
+		if(warnString != null)
+			throw new TankException(warnString);
+		
 	}
 
 	/**
@@ -71,8 +78,9 @@ public class Pump{
 	 * @param amount
 	 * @throws TankException 
 	 */
-	public void pumpUnleaded(long amount) throws PumpException {
+	public void pumpUnleaded(long amount) throws PumpException, TankException  {
 		boolean warn = false;
+		String warnString = null;
 		for(int i =0; i < amount; i+=10) {
 			try {
 				unleadedTank.remove(tickAmount);
@@ -81,11 +89,13 @@ public class Pump{
 					throw new PumpException("UNLEADED TANK: Tank is empty.",i);
 				else if(warn == false)
 				{
-					System.out.println("UNLEADED TANK: " + te.toString());
+					warnString = te.toString();
 					warn = true;
 				}
 			}
 		}
+		if(warnString != null)
+			throw new TankException(warnString);
 	}
 	
 	/**
@@ -93,8 +103,9 @@ public class Pump{
 	 * @param amount
 	 * @throws TankException 
 	 */
-	public void pumpMidGrade(long amount) throws PumpException {
+	public void pumpMidGrade(long amount) throws PumpException, TankException {
 		boolean warn = false;
+		String warnString = null;
 		for(int i =0; i<amount; i+=10)
 		{
 			try{
@@ -104,10 +115,12 @@ public class Pump{
 				if(te.toString().contains("empty"))
 					throw new PumpException("Tank is empty.",i);
 				else if(warn == false) {
-					System.out.println("UNLEADED AND PREMIUM TANK: " + te.toString());
+					warnString = te.toString();
 					warn = true;
 				}
 			}
 		}
+		if(warnString != null)
+			throw new TankException(warnString);
 	}
 }

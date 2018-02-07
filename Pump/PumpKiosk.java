@@ -1,5 +1,7 @@
 package Pump;
 
+import Tank.TankException;
+
 public class PumpKiosk implements Runnable{
 
 	//Global variables
@@ -92,17 +94,11 @@ public class PumpKiosk implements Runnable{
 					System.out.print("Total cost: $");
 					System.out.printf("%.2f\n", toDouble(amount) * toDouble(curCost));
 					PumpThread.currentThread().setOpen();
-					PumpThread.sleep(250);
 				}
 				
 			}catch (PumpException pe) {
 				synchronized(this){
-					try {
-						PumpThread.sleep(250);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					
 					System.out.println("\n" + Thread.currentThread().getName() + ":");
 					System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
 					System.out.println(pe);
@@ -115,6 +111,22 @@ public class PumpKiosk implements Runnable{
 					
 				}
 			}
+			catch(TankException te) {
+				synchronized(this){
+					
+					System.out.println("\n" + Thread.currentThread().getName() + ":");
+					System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
+					System.out.println(te);
+					System.out.println("Amount pumped: " + toDouble(amount) + " gallons");
+					System.out.print("Price per gallon: $");
+					System.out.printf("%.2f\n", toDouble(curCost));
+					System.out.print("Total cost: $");
+					System.out.printf("%.2f\n", toDouble(amount) * toDouble(curCost));
+					PumpThread.currentThread().setOpen();
+					
+				}
+			}
+			
 			catch (Exception e) {
 				System.out.println(e);
 			}
