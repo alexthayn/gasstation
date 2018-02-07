@@ -92,10 +92,17 @@ public class PumpKiosk implements Runnable{
 					System.out.print("Total cost: $");
 					System.out.printf("%.2f\n", toDouble(amount) * toDouble(curCost));
 					PumpThread.currentThread().setOpen();
+					PumpThread.sleep(250);
 				}
 				
 			}catch (PumpException pe) {
 				synchronized(this){
+					try {
+						PumpThread.sleep(250);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					System.out.println("\n" + Thread.currentThread().getName() + ":");
 					System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
 					System.out.println(pe);
@@ -105,6 +112,7 @@ public class PumpKiosk implements Runnable{
 					System.out.print("Total cost: $");
 					System.out.printf("%.2f\n", toDouble(pe.getAmount()) * toDouble(curCost));
 					PumpThread.currentThread().setOpen();
+					
 				}
 			}
 			catch (Exception e) {

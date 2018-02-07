@@ -76,6 +76,7 @@ public class Store {
 	
 	public void storeOpen()
 	{
+		System.out.println("Store is open for business.");
 		
 		CustomerOrder current;
 		while(!queue.isEmpty()) {
@@ -103,6 +104,9 @@ public class Store {
 			}
 		}
 		
+		
+		storeClose();
+		
 		/*//Initial order
 		CustomerOrder current = queue.remove();
 		try {
@@ -126,6 +130,19 @@ public class Store {
 		}*/
 		
 		
+		
+	}
+
+	private void storeClose() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("\n\nStore is closed.\nDiesel Tank has " + dieselTank.getAmount() + " gallons left."
+				+ "\nPremium Tank has " + premiumTank.getAmount() + " gallons left."
+						+ "\nUnleaded Tank has " + unleadedTank.getAmount() + " gallons left.");
 		
 	}
 	
