@@ -47,7 +47,7 @@ public class Driver{
 		//Make orders in code manually
 		theStore.makeOrder("Eliza", "unleaded", 10);
 		theStore.makeOrder("George", "unleaded", 20);
-		theStore.makeOrder("Fredrick", "premium", 40);
+		theStore.makeOrder("Fredrick", "premium", 50);
 		theStore.makeOrder("Sammy", "midgrade", 10);
 		theStore.makeOrder("Anne", "unleaded", 25);
 		theStore.makeOrder("Bill", "diesel", 4900);
