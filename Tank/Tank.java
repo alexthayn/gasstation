@@ -2,7 +2,7 @@ package Tank;
 
 /**
  * Tank abstract class that sets prereqs for a Tank concrete class
- * @author jacksonportersnow and goofyChicken
+ * @author jacksonportersnow, tybayn, alexthayn
  *
  */
 public abstract class Tank {
@@ -14,13 +14,7 @@ public abstract class Tank {
 	 * Creates a tank object (is a singleton object)
 	 */
 	public Tank() {};
-	
-//	/**
-//	 * Returns instance of tank object (only one exists)
-//	 * @return Tank object
-//	 */
-//	public abstract Tank getTank();
-	
+		
 	/**
 	 * Sets capacity of tank
 	 * @param capacity capacity of tank
@@ -96,7 +90,7 @@ public abstract class Tank {
 	
 	/**
 	 * Returns if the tank is empty or not
-	 * @return
+	 * @return returns if tank IS empty
 	 */
 	public Boolean isEmpty() {
 		return (this.amount <= 0);

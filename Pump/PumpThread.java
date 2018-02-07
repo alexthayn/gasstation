@@ -23,7 +23,7 @@ public class PumpThread extends Thread{
 	}
 	
 	/**
-	 * Sets the type of order/pump that is supposed to be fulfilled
+	 * Sets the type of order/pump that is supposed to be fulfilled and sets PumpThread (PumpKiosk) to IN USE.
 	 * @param gasType Type of gas to be pumped
 	 * @param gasAmount Amount of gas to be pumped in gallons
 	 * @throws Exception Thrown if amount of gas incorrect (negative number)
