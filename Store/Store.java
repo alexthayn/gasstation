@@ -38,6 +38,8 @@ public class Store {
 		premiumTank = PremiumTank.getTank();
 		unleadedTank = UnleadedTank.getTank();
 		
+		
+		//Fill our tanks!
 		try {
 			dieselTank.refill(5000);
 			premiumTank.refill(5000);
@@ -78,23 +80,27 @@ public class Store {
 		CustomerOrder current = queue.remove();
 		
 		try {
-			pump1.newCustomer(current.getType(), current.getAmount());
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			System.out.println(e1);
-		}
-		pump1.start();		
-		
-		
-		/*
-		while(current != null)
-		{
-			if(pump1.isOpen())
+			while(current != null)
 			{
-				current = queue.remove();
+				if(pump1.isOpen())
+				{
+					try {
+						pump1.newCustomer(current.getType(), current.getAmount());
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						System.out.println(e);
+					}
+					
+					pump1.start();
+					current = queue.remove();
+				}
 			}
+		}catch(java.util.NoSuchElementException e) {
+			System.out.println("Proccessed all orders!");
 		}
-		*/
+		
+		
+		
 	}
 	
 }

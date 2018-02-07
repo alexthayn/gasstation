@@ -41,7 +41,7 @@ public class Driver{
 		String amount = input.nextLine();
 		
 		theStore.makeOrder(name, type, Double.parseDouble(amount));
-		
+		theStore.makeOrder("Eliza", "unleaded", 10);
 
 		
 		//Run orders!
