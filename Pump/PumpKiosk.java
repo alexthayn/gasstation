@@ -85,6 +85,7 @@ public class PumpKiosk implements Runnable{
 				}
 				
 				System.out.println("\n" + Thread.currentThread().getName() + ":");
+				System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
 				System.out.println("Amount pumped: " + toDouble(amount) + " gallons");
 				System.out.print("Price per gallon: $");
 				System.out.printf("%.2f\n", toDouble(curCost));
@@ -94,6 +95,7 @@ public class PumpKiosk implements Runnable{
 				
 			}catch (PumpException pe) {
 				System.out.println("\n" + Thread.currentThread().getName() + ":");
+				System.out.println("Request: " + toDouble(amount) + " gallons of " + gasType);
 				System.out.println(pe);
 				System.out.println("Amount pumped: " + toDouble(pe.getAmount()) + " gallons");
 				System.out.print("Price per gallon: $");
