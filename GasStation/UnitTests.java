@@ -13,10 +13,21 @@ import Tank.DieselTank;
 import Tank.PremiumTank;
 import Tank.Tank;
 
+/**
+ * UnitTest class to test that correct fuel is being pulled out
+ * @author alexthayn
+ */
 class UnitTests {
 	Tank premiumTank = PremiumTank.getTank();
 	Tank dieselTank = DieselTank.getTank();
 	
+	
+	/**
+	 * Parameterized UnitTest for the PremiumTank to verify correct fuel is being pulled out.
+	 * @param type Type of gasoline (diesel, unleaded, midgrade, premium)
+	 * @param amount Amount in gallons of gasoline
+	 * @param fuelRemaining Amount of fuel that should be remaining in tank in gallons
+	 */
 	@ParameterizedTest(name="{index}=>type= {0}, amount = {1}, fuelRemaining = {2}")
 	@CsvSource({
 		"Premium, 12, 188",
@@ -42,6 +53,12 @@ class UnitTests {
 		assertEquals(fuelRemaining, premiumTank.getAmount(), .5);
 	}
 
+	/**
+	 * Parameterized UnitTest for the DieselTank to verify correct fuel is being pulled out.
+	 * @param type Type of gasoline (diesel, unleaded, midgrade, premium)
+	 * @param amount Amount in gallons of gasoline
+	 * @param fuelRemaining Amount of fuel that should be remaining in tank in gallons
+	 */
 	@ParameterizedTest(name="{index}=>type= {0}, amount = {1}, fuelRemaining = {2}")
 	@CsvSource({
 		"Diesel, 12, 188",

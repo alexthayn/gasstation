@@ -1,7 +1,16 @@
 package Pump;
 
+/**
+ * Driver class that allows the testing/running of PumpThread objects
+ * @author tybayn
+ *
+ */
 public class PumpDriver {
 
+	/**
+	 * Runs the test of PumpThread objects
+	 * @param args Command line arguments (not currently used)
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

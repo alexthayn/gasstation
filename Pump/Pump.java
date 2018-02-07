@@ -2,8 +2,8 @@ package Pump;
 import Tank.*;
 
 /**
- * 
- * @author tymcb and goofyChicken
+ * Pump class that adds, removes gas from set tanks.
+ * @author tymcb and alexthayn
  *
  */
 public class Pump{
@@ -20,13 +20,12 @@ public class Pump{
 		unleadedTank = UnleadedTank.getTank();
 	};
 	
-	/**
-	 * 
-	 * @param name
-	 * @param amount
-	 * @param cost
-	 * @throws TankException 
-	 */
+/**
+ * Removes specified amount of gas from the DieselTank
+ * @param amount amount of gas in gallons to remove
+ * @throws PumpException Exception thrown if there is problem when pumping gas.
+ * @throws TankException Exception thrown if there is low gas or out of gas within tank.
+ */
 	public void pumpDiesel(long amount) throws PumpException, TankException {
 		boolean warn = false;
 		String warnString = null;
@@ -48,10 +47,11 @@ public class Pump{
 	}
 	
 	/**
-	 * 
-	 * @param amount
-	 * @throws TankException 
-	 */	
+	 * Removes specified amount of gas from the PremiumTank
+	 * @param amount amount of gas in gallons to remove
+	 * @throws PumpException Exception thrown if there is problem when pumping gas.
+	 * @throws TankException Exception thrown if there is low gas or out of gas within tank.
+	 */
 	public void pumpPremium(long amount) throws PumpException, TankException  {
 		boolean warn = false;
 		String warnString = null;
@@ -74,9 +74,10 @@ public class Pump{
 	}
 
 	/**
-	 * 
-	 * @param amount
-	 * @throws TankException 
+	 * Removes specified amount of gas from the UnleadedTank
+	 * @param amount amount of gas in gallons to remove
+	 * @throws PumpException Exception thrown if there is problem when pumping gas.
+	 * @throws TankException Exception thrown if there is low gas or out of gas within tank.
 	 */
 	public void pumpUnleaded(long amount) throws PumpException, TankException  {
 		boolean warn = false;
@@ -99,9 +100,10 @@ public class Pump{
 	}
 	
 	/**
-	 * 
-	 * @param amount
-	 * @throws TankException 
+	 * Removes specified amount of gas from the Premium and Unleaded Tanks.
+	 * @param amount amount of gas in gallons to remove (half to premium, half to unleaded tanks)
+	 * @throws PumpException Exception thrown if there is problem when pumping gas.
+	 * @throws TankException Exception thrown if there is low gas or out of gas within tank.
 	 */
 	public void pumpMidGrade(long amount) throws PumpException, TankException {
 		boolean warn = false;
