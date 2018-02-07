@@ -46,7 +46,7 @@ public class Driver{
 		theStore.makeOrder("Fredrick", "premium", 40);
 		theStore.makeOrder("Sammy", "midgrade", 10);
 		theStore.makeOrder("Anne", "unleaded", 25);
-		theStore.makeOrder("Bill", "diesel", 30);
+		theStore.makeOrder("Bill", "diesel", 4900);
 		theStore.makeOrder("Frank", "diesel", 50);
 		theStore.makeOrder("Lola", "unleaded", 10);
 		theStore.makeOrder("Dude", "premium", 25);

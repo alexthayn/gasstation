@@ -33,7 +33,11 @@ public class Pump{
 				dieselTank.remove(tickAmount);
 			}catch(TankException te) {
 				if(te.toString().contains("empty"))
-					throw new PumpException("Tank is empty.",i);
+					throw new PumpException("DIESEL TANK: Tank is empty.",i);
+				else
+				{
+					System.out.println("DIESEL TANK: " + te.toString());
+				}
 			}
 		}	
 	}
@@ -49,7 +53,11 @@ public class Pump{
 				premiumTank.remove(tickAmount);
 			}catch(TankException te) {
 				if(te.toString().contains("empty"))
-					throw new PumpException("Tank is empty.",i);
+					throw new PumpException("PREMIUM TANK: Tank is empty.",i);
+				else
+				{
+					System.out.println("PREMIUM TANK: " + te.toString());
+				}
 			}
 		}
 	}
@@ -65,7 +73,11 @@ public class Pump{
 				unleadedTank.remove(tickAmount);
 			}catch(TankException te) {
 				if(te.toString().contains("empty")) 
-					throw new PumpException("Tank is empty.",i);
+					throw new PumpException("UNLEADED TANK: Tank is empty.",i);
+				else
+				{
+					System.out.println("UNLEADED TANK: " + te.toString());
+				}
 			}
 		}
 	}

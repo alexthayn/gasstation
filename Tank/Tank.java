@@ -83,8 +83,15 @@ public abstract class Tank {
 			throw new TankException("empty");
 		}
 		
-		this.amount -= a;
 		
+		this.amount -= a;
+		//System.out.println("TANK AT: " + this.amount + " gallons");
+		
+		
+		if((this.amount/100) < 100.0)
+		{
+			throw new TankException("This gas tank is low, we have less than 100 gallons left.");
+		}
 	}
 	
 	/**
