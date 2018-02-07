@@ -50,7 +50,7 @@ class UnitTests {
 		"Diesel, 150, 513",
 		//Edge cases
 		"Diesel, 0, 713",
-		"Diesel, 800, 113"
+		"Diesel, 1000, 0.0"
 	})
 	void dieselTankTest(String type, double amount, double fuelRemaining) {
 		try {
