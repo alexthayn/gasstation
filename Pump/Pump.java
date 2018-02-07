@@ -32,7 +32,7 @@ public class Pump{
 			try {
 				dieselTank.remove(tickAmount);
 			}catch(TankException te) {
-				if(te.equals("empty"))
+				if(te.toString().contains("empty"))
 					throw new PumpException("Tank is empty.",i);
 			}
 		}	
@@ -48,7 +48,7 @@ public class Pump{
 			try {
 				premiumTank.remove(tickAmount);
 			}catch(TankException te) {
-				if(te.equals("empty"))
+				if(te.toString().contains("empty"))
 					throw new PumpException("Tank is empty.",i);
 			}
 		}
@@ -60,11 +60,11 @@ public class Pump{
 	 * @throws TankException 
 	 */
 	public void pumpUnleaded(long amount) throws PumpException {
-		for(int i =0; i<amount; i+=10) {
+		for(int i =0; i < amount; i+=10) {
 			try {
 				unleadedTank.remove(tickAmount);
 			}catch(TankException te) {
-				if(te.equals("empty"))
+				if(te.toString().contains("empty")) 
 					throw new PumpException("Tank is empty.",i);
 			}
 		}
@@ -82,7 +82,7 @@ public class Pump{
 				unleadedTank.remove(tickAmount/2);
 				premiumTank.remove(tickAmount/2);
 			}catch(TankException te) {
-				if(te.equals("empty"))
+				if(te.toString().contains("empty"))
 					throw new PumpException("Tank is empty.",i);		
 			}
 		}

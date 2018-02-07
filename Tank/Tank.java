@@ -27,7 +27,7 @@ public abstract class Tank {
 	 */
 	protected void setCapacity(double capacity)
 	{
-		long c = (long) capacity*100;
+		long c = (long) Math.floor(capacity * 100);
 		this.capacity = c;
 	}
 	
@@ -37,7 +37,7 @@ public abstract class Tank {
 	 */
 	public double getCapacity()
 	{
-		double capacity = (double) (this.capacity/100);
+		double capacity = ((double)(this.capacity))/100;
 		return capacity;
 	}
 	
@@ -47,7 +47,7 @@ public abstract class Tank {
 	 */
 	public synchronized double getAmount()
 	{
-		double amount = (double) (this.amount/100);
+		double amount = ((double) (this.amount))/100;
 		return amount;
 	}
 	
@@ -58,7 +58,7 @@ public abstract class Tank {
 	 */
 	public void refill(double amount) throws TankException
 	{
-		long a = (long) amount*100;
+		long a = (long) Math.floor(amount*100);
 		
 		if((this.amount + a) > this.capacity)
 		{
@@ -77,8 +77,8 @@ public abstract class Tank {
 	 */
 	public synchronized void remove(double amount) throws TankException
 	{
-		long a = (long) amount*100;
-		if(a > this.amount)
+		long a = (long) Math.floor(amount*100);
+		if((a > this.amount) || this.isEmpty())
 		{
 			throw new TankException("empty");
 		}

@@ -98,7 +98,7 @@ public class PumpKiosk implements Runnable{
 				System.out.println("Amount pumped: " + toDouble(pe.getAmount()) + " gallons");
 				System.out.print("Price per gallon: $");
 				System.out.printf("%.2f\n", toDouble(curCost));
-				System.out.println("Total cost: $");
+				System.out.print("Total cost: $");
 				System.out.printf("%.2f\n", toDouble(pe.getAmount()) * toDouble(curCost));
 				PumpThread.currentThread().setOpen();
 			}

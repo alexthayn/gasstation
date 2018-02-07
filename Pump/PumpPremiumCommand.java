@@ -9,6 +9,6 @@ public class PumpPremiumCommand implements Command {
 	public void pump(long amount) throws PumpException {
 		// TODO Auto-generated method stub
 		pump = new Pump();
-		pump.pumpDiesel(amount);
+		pump.pumpPremium(amount);
 	}
 }
