@@ -28,15 +28,17 @@ public class Pump{
 	 * @throws TankException 
 	 */
 	public void pumpDiesel(long amount) throws PumpException{
+		boolean warn = false;
 		for(int i =0; i<amount; i+=10) {
 			try {
 				dieselTank.remove(tickAmount);
 			}catch(TankException te) {
 				if(te.toString().contains("empty"))
 					throw new PumpException("DIESEL TANK: Tank is empty.",i);
-				else
+				else  if(warn == false)
 				{
 					System.out.println("DIESEL TANK: " + te.toString());
+					warn = true;
 				}
 			}
 		}	
@@ -48,15 +50,17 @@ public class Pump{
 	 * @throws TankException 
 	 */	
 	public void pumpPremium(long amount) throws PumpException {
+		boolean warn = false;
 		for(int i =0; i<amount; i+=10) {
 			try {
 				premiumTank.remove(tickAmount);
 			}catch(TankException te) {
 				if(te.toString().contains("empty"))
 					throw new PumpException("PREMIUM TANK: Tank is empty.",i);
-				else
+				else if(warn == false)
 				{
 					System.out.println("PREMIUM TANK: " + te.toString());
+					warn = true;
 				}
 			}
 		}
@@ -68,15 +72,17 @@ public class Pump{
 	 * @throws TankException 
 	 */
 	public void pumpUnleaded(long amount) throws PumpException {
+		boolean warn = false;
 		for(int i =0; i < amount; i+=10) {
 			try {
 				unleadedTank.remove(tickAmount);
 			}catch(TankException te) {
 				if(te.toString().contains("empty")) 
 					throw new PumpException("UNLEADED TANK: Tank is empty.",i);
-				else
+				else if(warn == false)
 				{
 					System.out.println("UNLEADED TANK: " + te.toString());
+					warn = true;
 				}
 			}
 		}
@@ -88,6 +94,7 @@ public class Pump{
 	 * @throws TankException 
 	 */
 	public void pumpMidGrade(long amount) throws PumpException {
+		boolean warn = false;
 		for(int i =0; i<amount; i+=10)
 		{
 			try{
@@ -95,7 +102,11 @@ public class Pump{
 				premiumTank.remove(tickAmount/2);
 			}catch(TankException te) {
 				if(te.toString().contains("empty"))
-					throw new PumpException("Tank is empty.",i);		
+					throw new PumpException("Tank is empty.",i);
+				else if(warn == false) {
+					System.out.println("UNLEADED AND PREMIUM TANK: " + te.toString());
+					warn = true;
+				}
 			}
 		}
 	}
