@@ -38,6 +38,14 @@ public class Store {
 		premiumTank = PremiumTank.getTank();
 		unleadedTank = UnleadedTank.getTank();
 		
+		try {
+			dieselTank.refill(5000);
+			premiumTank.refill(5000);
+			unleadedTank.refill(5000);
+		}catch(TankException te) {
+			
+		}
+		
 		//Instantiate Variables 		
 		pumpKiosk = new PumpKiosk();
 		pumpKiosk.setDieselCost(2.50);
