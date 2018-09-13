@@ -10,6 +10,8 @@
 This is a group project that introduced us to using many different software design patterns and multi-threaded applications. It was also a first group project for us together using source control.
 
 ## Project Specifications:
+(Specifications given by Professor Heber Allen)
+
 Gas Station has 3 tanks:
 
 - Diesel
