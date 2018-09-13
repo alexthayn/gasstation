@@ -1,26 +1,70 @@
 # Gas Station
-## Snow College SE 3450: Software Design Principles
-Welcome. This is our GasStation project repository. Jackson Porter, Alex Thayn and Tyler Bayn are working on this project. 
 
-If you wish to use this project, it was built in eclipse. 
+![](https://www.snow.edu/pr/brand/images/signature.jpg)
 
-### How to download to your computer:
+## Software Design Principles (SE 3450)
 
-#### Using a command line, make a new directory in which you want this github repository to be stored.
 
-Example for UNIX/GNU Linux: 
-  mkdir github/gasstation
-  cd github/gasstation
-  
-Example for Windows CMD: 
-  mkdir github/gasstation
-  cd github/gasstation
+###### Content from the course, including course work and other misc. work. Work in this repository is in the Java programming language.
 
-Then, after installing git for your OS, 
-  git clone https://github.com/jacksonportersnow/gasstation.git
-  
-Next, open the Eclipse IDE (you may have to install in and the Java JDK) and go to
-  File --> Open Projects From FileSystem --> Directory 
-  And select the directory we created above (github/gasstation)
-  
-If you wish to edit this project, contact us!
+This is a group project that introduced us to using many different software design patterns and multi-threaded applications. It was also a first group project for us together using source control.
+
+## Project Specifications:
+Gas Station has 3 tanks:
+
+- Diesel
+
+- Reg Unleaded
+
+- Premium Unleaded
+
+Gas Station sells 4 types of fuel:
+
+- Diesel
+
+- Reg Unleaded
+
+- Premium Unleaded
+
+- Mid Grade (50% Reg + 50% Premium)
+
+Start with 2 threads, but get ready for up to 16 threads/pumps running at the same time. (*I am not sure if we got to 16 threads*)
+
+RULES:
+
+- Can't sell gas you didn't have to pump
+
+- Give up-to the requested number of gallons for that fuel type
+
+- suggested:  customer issues a getFuel(Diesel,25gallons) type of call
+
+Phase 1:
+
+- Use GOOD Patterns
+
+- Start with 2 pumps
+
+- Fuel Tanks get reffiled, get emptied by pumps
+
+- Store knows amoutn of fuel in each tank
+
+- Pumps need to select correct type of gas (Pump Accuracy set to 0.1 gallns)
+
+Phase 2:
+
+- Event if tank is getting close to needing a refil
+
+- Event if tank is empty
+
+- Thread safe!  Make test cases to prove it
+
+
+## Team Members:
+
+- Ty Bayn: https://github.com/TyBayn
+
+- Jackson Porter: https://github.com/jacksonporter
+
+- Alex Thayn: https://github.com/alexthayn
+
+
