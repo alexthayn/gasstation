@@ -60,18 +60,19 @@ Phase 2:
 
 - Thread safe!  Make test cases to prove it
 
-Patterns we used:
--Command pattern: We used the command pattern in our design to encapsulate all the information needed to pump gas from a tank. We had a getDieselCommand, getPremiumCommand, and a getUnleadedCommand. By using these commands it allowed us to encapsulate the get fuel functions so our actual pump didn’t need to know about the inner workings which made the pumps loosely coupled with the fuel tanks
+##Patterns we used:
 
--Singleton pattern: We used the singleton pattern for each type of tank we created. This made sure we were only ever accessing one tank object and that the get fuel commands were only ever pulling fuel out of one single tank that was shared between all pumps at the gas station.
+- Command pattern: We used the command pattern in our design to encapsulate all the information needed to pump gas from a tank. We had a getDieselCommand, getPremiumCommand, and a getUnleadedCommand. By using these commands it allowed us to encapsulate the get fuel functions so our actual pump didn’t need to know about the inner workings which made the pumps loosely coupled with the fuel tanks
+
+- Singleton pattern: We used the singleton pattern for each type of tank we created. This made sure we were only ever accessing one tank object and that the get fuel commands were only ever pulling fuel out of one single tank that was shared between all pumps at the gas station.
 
 Patterns we considered using: 
 
--Observer pattern: We considered using the observer pattern. We wanted to set each tank up as a publisher and have the store be a subscriber that receives notifications when the tank is low. We decided to go with a simpler method (printing a message when the tank was low) that didn’t complicate our code as much.
+- Observer pattern: We considered using the observer pattern. We wanted to set each tank up as a publisher and have the store be a subscriber that receives notifications when the tank is low. We decided to go with a simpler method (printing a message when the tank was low) that didn’t complicate our code as much.
 
--Strategy pattern: We also considered using the strategy, but we couldn’t come up with an acceptable use for it. We felt this pattern would unnecessarily complicate our code and was unneeded in our implementation. 
+- Strategy pattern: We also considered using the strategy, but we couldn’t come up with an acceptable use for it. We felt this pattern would unnecessarily complicate our code and was unneeded in our implementation. 
 
--Decorator pattern: We only considered using this for a second as we went through the list of possible patterns to use. We thought about decorating our gas pumps but then concluded this was a dumb idea and abandoned it.
+- Decorator pattern: We only considered using this for a second as we went through the list of possible patterns to use. We thought about decorating our gas pumps but then concluded this was a dumb idea and abandoned it.
 
 
 ## Team Members:
